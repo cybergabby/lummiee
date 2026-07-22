@@ -21,3 +21,16 @@ if (form && formMessage) {
     formMessage.textContent = 'Thank you! Your request is being sent on WhatsApp.';
   });
 }
+
+document.querySelectorAll('[data-carousel][data-direction]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const carousel = document.getElementById(button.dataset.carousel);
+    if (!carousel) return;
+
+    const direction = button.dataset.direction === 'next' ? 1 : -1;
+    carousel.scrollBy({
+      left: direction * Math.min(carousel.clientWidth * 0.8, 430),
+      behavior: 'smooth',
+    });
+  });
+});
