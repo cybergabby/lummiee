@@ -216,6 +216,124 @@ main {
   box-shadow: var(--shadow), 0 0 0 1px rgba(184, 137, 63, 0.22);
 }
 
+.shop-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0 4.5rem;
+}
+
+.shop-heading {
+  max-width: 720px;
+  margin-bottom: 3rem;
+}
+
+.shop-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.jewellery-category {
+  margin-top: 3rem;
+}
+
+.category-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.category-number {
+  display: grid;
+  flex: 0 0 2.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border: 1px solid rgba(184, 137, 63, 0.5);
+  border-radius: 50%;
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+.category-heading h3 {
+  margin: 0;
+  color: var(--dark-accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+}
+
+.category-heading p {
+  margin: 0.2rem 0 0;
+  color: var(--muted-text);
+}
+
+.jewellery-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.jewellery-grid-wide {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.jewel-card {
+  position: relative;
+  min-height: 300px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(184, 137, 63, 0.22);
+  border-radius: 1.25rem;
+  background: #ead9c4;
+  box-shadow: 0 12px 30px rgba(74, 47, 29, 0.1);
+  isolation: isolate;
+}
+
+.jewel-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.jewel-card::after {
+  position: absolute;
+  inset: 35% 0 0;
+  z-index: 0;
+  background: linear-gradient(transparent, rgba(38, 24, 17, 0.82));
+  content: "";
+}
+
+.jewel-card:hover img {
+  transform: scale(1.06);
+}
+
+.jewel-card figcaption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  color: #fffdf9;
+}
+
+.jewel-card figcaption strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+}
+
+.jewel-card figcaption span {
+  color: rgba(255, 253, 249, 0.82);
+  font-size: 0.85rem;
+}
+
+.jewel-card-featured {
+  grid-column: span 2;
+}
+
 .collections,
 .process {
   padding: 2rem 0;
@@ -409,8 +527,14 @@ textarea {
   }
 
   .collection-grid,
-  .step-grid {
+  .step-grid,
+  .jewellery-grid,
+  .jewellery-grid-wide {
     grid-template-columns: 1fr;
+  }
+
+  .jewel-card-featured {
+    grid-column: auto;
   }
 }
 
@@ -423,6 +547,8 @@ textarea {
   .nav-links {
     width: 100%;
     justify-content: space-between;
+    gap: 0.7rem;
+    font-size: 0.9rem;
   }
 
   main {
